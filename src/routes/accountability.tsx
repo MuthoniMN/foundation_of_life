@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { Button } from "@/components/ui/button";
-import { fundReports } from "@/content/site";
+import { fundReports, type FundReport } from "@/content/site";
 import { Heart, FileText } from "lucide-react";
 
 export const Route = createFileRoute("/accountability")({
@@ -80,7 +80,7 @@ function SummaryCard({ label, value, accent }: { label: string; value: string; a
   );
 }
 
-function ReportCard({ report, latest }: { report: ReturnType<typeof useReport>; latest?: boolean }) {
+function ReportCard({ report, latest }: { report: FundReport; latest?: boolean }) {
   const total = report.categories.reduce((s, c) => s + c.amount, 0);
 
   return (
@@ -139,5 +139,3 @@ function ReportCard({ report, latest }: { report: ReturnType<typeof useReport>; 
   );
 }
 
-// Type helper so ReportCard infers report shape
-function useReport() { return null as unknown as (typeof import("@/content/site"))["fundReports"][number]; }
