@@ -75,7 +75,7 @@ export default async function HomePage() {
             </h1>
 
             <p className="mt-5 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-              {hero?.columns?.[0]?.richText?.root?.children?.[1]?.children?.[0]?.text || site.shortDescription}
+              {(hero?.columns?.[0]?.richText as any)?.root?.children?.[1]?.children?.[0]?.text || site.shortDescription}
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -166,7 +166,7 @@ export default async function HomePage() {
                   {extractFirstText(textCol?.richText)}
                 </h2>
                 <p className="mt-5 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-                  {textCol?.richText?.root?.children?.[1]?.children?.[0]?.text}
+                  {(textCol?.richText as any)?.root?.children?.[1]?.children?.[0]?.text}
                 </p>
               </div>
               <div className={`relative ${reversed ? "lg:order-1" : ""}`}>

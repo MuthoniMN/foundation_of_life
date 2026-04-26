@@ -86,7 +86,7 @@ export default async function AboutPage() {
                                             {extractFirstText(textCol?.richText)}
                                         </h2>
                                         <p className="mt-5 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-                                            {textCol?.richText?.root?.children?.[1]?.children?.[0]?.text}
+                                            {(textCol?.richText as any)?.root?.children?.[1]?.children?.[0]?.text}
                                         </p>
                                     </div>
                                 </div>
@@ -99,7 +99,7 @@ export default async function AboutPage() {
                                     {extractFirstText(textCol?.richText)}
                                 </h2>
                                 <p className="mt-5 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-                                    {textCol?.richText?.root?.children?.[1]?.children?.[0]?.text}
+                                    {(textCol?.richText as any)?.root?.children?.[1]?.children?.[0]?.text}
                                 </p>
                             </div>
                         ) : (
@@ -111,7 +111,7 @@ export default async function AboutPage() {
                                         {extractFirstText(textCol?.richText)}
                                     </h2>
                                     <p className="mt-5 max-w-xl text-base sm:text-lg text-muted-foreground leading-relaxed">
-                                        {textCol?.richText?.root?.children?.[1]?.children?.[0]?.text}
+                                        {(textCol?.richText as any)?.root?.children?.[1]?.children?.[0]?.text}
                                     </p>
                                 </div>
                                 <div className={`relative ${reversed ? "lg:order-1" : ""}`}>

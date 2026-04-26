@@ -4,9 +4,9 @@ import type { CallToActionBlock as CTABlockProps } from "@/payload-types";
 import { CMSLink } from "@/components/Link";
 
 export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, richText }) => {
-  const title = richText?.root?.children?.[0]?.children?.[0]?.text as string | undefined;
-  const body = richText?.root?.children?.[1]?.children?.[0]?.text as string | undefined;
-  const imageUrl = richText?.root?.children?.[2]?.value?.cloudinary?.secure_url as string | undefined;
+  const title = (richText as any)?.root?.children?.[0]?.children?.[0]?.text as string | undefined;
+  const body = (richText as any)?.root?.children?.[1]?.children?.[0]?.text as string | undefined;
+  const imageUrl = (richText as any)?.root?.children?.[2]?.value?.cloudinary?.secure_url as string | undefined;
 
   return (
     <div className="rounded-xl border border-border bg-primary-light overflow-hidden">

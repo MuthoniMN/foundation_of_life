@@ -105,7 +105,7 @@ export async function Footer() {
               </h3>
               <div className="overflow-hidden rounded-lg border border-white/15 h-40">
                 <iframe
-                  src={site.contact.location}
+                  src={site.contact.location ?? undefined}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
