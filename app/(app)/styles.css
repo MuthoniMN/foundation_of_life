@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  /* Define colors directly here so Tailwind creates the utilities */
+  --color-background: oklch(0.985 0.012 85);
+  --color-foreground: oklch(0.25 0.04 45);
+  --color-card: oklch(1 0 0);
+  --color-border: oklch(0.9 0.03 75);
+
+  --color-primary: oklch(0.68 0.17 28);
+  --color-primary-foreground: oklch(0.99 0.01 80);
+
+  --color-secondary: oklch(0.94 0.06 95);
+  --color-secondary-foreground: oklch(0.3 0.06 50);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Nunito", system-ui, sans-serif;
+
+  --radius: 1rem;
+}
+
+@layer base {
+  body {
+    /* Now Tailwind recognizes bg-background and text-foreground */
+    @apply bg-background text-foreground font-sans;
+  }
+
+  * {
+    /* Now Tailwind recognizes border-border */
+    @apply border-border;
+  }
+}
