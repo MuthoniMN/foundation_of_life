@@ -45,8 +45,8 @@ export function DonateForm({ donationPresets }: DonateFormProps) {
                                     onClick={() => setFrequency(option)}
                                     aria-pressed={frequency === option}
                                     className={`px-6 py-2.5 text-sm font-bold rounded-full transition-all duration-300 ${frequency === option
-                                            ? "bg-primary text-white shadow-md"
-                                            : "text-foreground/60 hover:text-foreground"
+                                        ? "bg-primary text-white shadow-md"
+                                        : "text-foreground/60 hover:text-foreground"
                                         }`}
                                 >
                                     {option === "one-time" ? "One-time" : "Monthly"}
@@ -66,8 +66,8 @@ export function DonateForm({ donationPresets }: DonateFormProps) {
                                             setCustom("");
                                         }}
                                         className={`group rounded-3xl border-2 p-5 text-left transition-all duration-300 transform ${active
-                                                ? "border-primary bg-orange-50 shadow-md"
-                                                : "border-border bg-white hover:border-primary hover:shadow-md"
+                                            ? "border-primary bg-orange-50 shadow-md"
+                                            : "border-border bg-white hover:border-primary hover:shadow-md"
                                             }`}
                                     >
                                         <div className="flex items-center justify-between gap-4">
@@ -79,8 +79,8 @@ export function DonateForm({ donationPresets }: DonateFormProps) {
                                             </div>
                                             <span
                                                 className={`rounded-full px-3 py-1.5 text-xs font-bold transition-all ${active
-                                                        ? "bg-primary text-white"
-                                                        : "bg-orange-100 text-primary group-hover:bg-primary group-hover:text-white"
+                                                    ? "bg-primary text-white"
+                                                    : "bg-orange-100 text-primary group-hover:bg-primary group-hover:text-white"
                                                     }`}
                                             >
                                                 {active ? (
@@ -147,7 +147,7 @@ export function DonateForm({ donationPresets }: DonateFormProps) {
                 onClick={() => handleGive(
                     selected?.stripePaymentLink && frequency === "monthly"
                         ? selected?.stripePaymentLink
-                        : "https://buy.stripe.com/test_fZucN58551jB3G83N41sQ04"
+                        : `https://buy.stripe.com/test_fZucN58551jB3G83N41sQ04?__prefilled_amount=${amount * 100}`
                 )}
             >
                 <Heart className="mr-2 h-5 w-5 fill-current" />

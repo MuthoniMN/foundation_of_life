@@ -57,7 +57,7 @@ export default async function ProgramsPage() {
                 </p>
             </section>
 
-            <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 grid gap-5 sm:grid-cols-2">
+            <section className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-14 grid gap-5">
                 {projects.map((project: any) => {
                     const amount = Math.max(1, Number(project.estimatedBudget || 50));
                     const checkoutLink = buildProjectCheckoutLink(project.id, project.title, amount);

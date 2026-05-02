@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import type { CallToActionBlock as CTABlockProps } from "@/payload-types";
 import { CMSLink } from "@/components/Link";
+import { Heart, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, richText }) => {
   const title = (richText as any)?.root?.children?.[0]?.children?.[0]?.text as string | undefined;
@@ -9,7 +11,7 @@ export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, richText }) 
   const imageUrl = (richText as any)?.root?.children?.[2]?.value?.cloudinary?.secure_url as string | undefined;
 
   return (
-    <div className="rounded-xl border border-border bg-primary-light overflow-hidden">
+    <div className="rounded-xl border border-border bg-green-200 overflow-hidden">
       <div className="flex flex-col md:flex-row">
 
         {/* Image panel */}
@@ -34,28 +36,26 @@ export const CallToActionBlock: React.FC<CTABlockProps> = ({ links, richText }) 
               </h2>
             )}
             {body && (
-              <p className="mt-3 text-base text-white leading-relaxed max-w-lg">
+              <p className="mt-3 text-base text-foreground leading-relaxed max-w-lg">
                 {body}
               </p>
             )}
           </div>
 
-          {(links?.length ?? 0) > 0 && (
-            <div className="flex flex-wrap gap-3">
-              {(links || []).map(({ link }, i) => (
-                <CMSLink
-                  key={i}
-                  size="lg"
-                  {...link}
-                  className={
-                    i === 0
-                      ? "inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold text-sm rounded-sm hover:bg-primary-hover transition-colors"
-                      : "inline-flex items-center gap-2 px-6 py-3 border border-primary text-primary font-semibold text-sm rounded-sm hover:bg-white transition-colors"
-                  }
-                />
-              ))}
-            </div>
-          )}
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Link
+              href="/donate"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-semibold text-sm rounded-sm hover:bg-primary-hover transition-colors"
+            >
+              <Heart className="h-4 w-4 fill-current" /> Donate now
+            </Link>
+            <Link
+              href="/accountability"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-primary text-primary font-semibold text-sm rounded-sm hover:bg-primary-light transition-colors"
+            >
+              See where it goes <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </div>
     </div>
